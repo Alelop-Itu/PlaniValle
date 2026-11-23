@@ -2,9 +2,8 @@ import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-nati
 import colores from '../styles/colores';
 
 
-const BarraFiltros = ({ titulo, opciones, seleccionado, alSeleccionar }) => {
-
-  const todasLasOpciones = ['Todos', ...opciones];
+const BarraFiltros = ({ titulo, opciones, seleccionado, alSeleccionar, sinTodos }) => {
+  const todasLasOpciones = sinTodos ? opciones : ['Todos', ...opciones];
 
   return (
     <View style={estilos.contenedor}>

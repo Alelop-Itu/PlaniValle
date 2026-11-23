@@ -1,4 +1,8 @@
-// Planificaciones de ejemplo (después vendrán de Supabase)
+
+export const turnos = ['Matutino', 'Vespertino'];
+export const aulas = ['Inicial 1', 'Inicial 2'];
+
+// Planificaciones de ejemplo 
 const planificacionesEjemplo = [
   {
     id: 1,
@@ -9,6 +13,8 @@ const planificacionesEjemplo = [
     semana: 3,
     turno: 'Matutino',
     aula: 'Inicial 1',
+    subidaPorId: 1,
+    subidaPor: 'Docente de prueba',
   },
   {
     id: 2,
@@ -19,6 +25,8 @@ const planificacionesEjemplo = [
     semana: 5,
     turno: 'Vespertino',
     aula: 'Inicial 2',
+    subidaPorId: 2,
+    subidaPor: 'María Pérez',
   },
   {
     id: 3,
@@ -29,6 +37,8 @@ const planificacionesEjemplo = [
     semana: 8,
     turno: 'Matutino',
     aula: 'Inicial 2',
+    subidaPorId: 2,
+    subidaPor: 'María Pérez',
   },
   {
     id: 4,
@@ -39,6 +49,8 @@ const planificacionesEjemplo = [
     semana: 2,
     turno: 'Matutino',
     aula: 'Inicial 1',
+    subidaPorId: 1,
+    subidaPor: 'Docente de prueba',
   },
   {
     id: 5,
@@ -49,6 +61,8 @@ const planificacionesEjemplo = [
     semana: 4,
     turno: 'Vespertino',
     aula: 'Inicial 1',
+    subidaPorId: 3,
+    subidaPor: 'Ana Torres',
   },
   {
     id: 6,
@@ -59,16 +73,28 @@ const planificacionesEjemplo = [
     semana: 6,
     turno: 'Matutino',
     aula: 'Inicial 2',
+    subidaPorId: 3,
+    subidaPor: 'Ana Torres',
   },
 ];
 
-// Simula la espera de internet para ver el ActivityIndicator
+
+let siguienteId = 7;
+
+
 const esperar = (milisegundos) => {
   return new Promise((resolver) => setTimeout(resolver, milisegundos));
 };
 
-// Devuelve todas las planificaciones del repositorio
+
 export const obtenerPlanificaciones = async () => {
+  await esperar(500);
+  return [...planificacionesEjemplo]; 
+};
+
+
+export const subirPlanificacion = async (nueva) => {
   await esperar(800);
-  return planificacionesEjemplo; // luego: consulta a Supabase
+  planificacionesEjemplo.push({ ...nueva, id: siguienteId });
+  siguienteId = siguienteId + 1;
 };

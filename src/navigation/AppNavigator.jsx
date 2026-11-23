@@ -5,6 +5,7 @@ import colores from '../styles/colores';
 import Login from '../screens/Login';
 import MenuInferior from './MenuInferior';
 import DetallePlanificacion from '../screens/DetallePlanificacion';
+import SubirPlanificacion from '../screens/SubirPlanificacion';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +14,7 @@ const AppNavigator = () => {
         <NavigationContainer>
             <Stack.Navigator
                 screenOptions={{
-                    headerShown: false, 
+                    headerShown: false,
                     headerStyle: { backgroundColor: colores.fondo },
                     headerTintColor: colores.texto,
                     headerTitleStyle: { fontWeight: 'bold' },
@@ -22,7 +23,11 @@ const AppNavigator = () => {
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Principal" component={MenuInferior} />
 
-                {}
+                <Stack.Screen
+                    name="SubirPlanificacion"
+                    component={SubirPlanificacion}
+                    options={{ headerShown: true, title: 'Subir planificación' }}
+                />
                 <Stack.Screen
                     name="DetallePlanificacion"
                     component={DetallePlanificacion}
